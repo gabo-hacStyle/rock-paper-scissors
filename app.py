@@ -39,6 +39,21 @@ def play_game():
     computer_choice = get_computer_choice()
     result = determine_winner(player_choice, computer_choice)
     print(f"You chose {player_choice}, computer chose {computer_choice}. {result}")
+
+def end_game():
+    print('--' *20)
+    print('--' *20)
+    print('Computer Score: ', computer_wins)
+    print('Player Score: ', player_wins)
+    print('Ties: ', ties)
+    if player_wins > computer_wins:
+        print("You won the game!")
+    elif computer_wins > player_wins:
+        print("You lost the game!")
+    else:
+        print("The game was a tie!")
+    print('--' *20)
+    print('--' *20)
      
 for round in range(int(rounds)):
     print('--' *20)
@@ -50,33 +65,9 @@ for round in range(int(rounds)):
     print('--' *20)
     play_game()
     if round == int(rounds) - 1:
-        print('--' *20)
-        print('--' *20)
-        print('Computer Score: ', computer_wins)
-        print('Player Score: ', player_wins)
-        print('Ties: ', ties)
-        if player_wins > computer_wins:
-            print("You won the game!")
-        elif computer_wins > player_wins:
-            print("You lost the game!")
-        else:
-            print("The game was a tie!")
-        print('--' *20)
-        print('--' *20)
+        end_game()
     else:
         user_continue = input("Do you want to play again? (y/n): ").lower()
         if user_continue != "y":
-            print('--' *20)
-            print('--' *20)
-            print('Computer Score: ', computer_wins)
-            print('Player Score: ', player_wins)
-            print('Ties: ', ties)
-            if player_wins > computer_wins:
-                print("You won the game!")
-            elif computer_wins > player_wins:
-                print("You lost the game!")
-            else:
-                print("The game was a tie!")
-            print('--' *20)
-            print('--' *20)
+            end_game()
             break
